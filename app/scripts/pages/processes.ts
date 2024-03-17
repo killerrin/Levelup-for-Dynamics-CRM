@@ -19,9 +19,13 @@ chrome.runtime.sendMessage(
       .join('');
     if (response.length > 0) {
       document.getElementById('results').innerHTML = rows;
-      new List('grid', {
-        valueNames: ['name'],
-      });
+
+      try {
+        // @ts-ignore
+        new List('grid', {
+          valueNames: ['name'],
+        });
+      } catch(ex) {}
     }
   }
 );

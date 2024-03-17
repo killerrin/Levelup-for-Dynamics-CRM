@@ -26,8 +26,12 @@ chrome.runtime.sendMessage(
           '<tr>' + rows[i].cells.map((x) => `<td>${x}</td>`).join('') + '</tr>';
     }
     document.getElementById('results').innerHTML = rowsHtml;
-    new List('grid', {
-      valueNames: ['user', 'role'],
-    });
+
+    try {
+      // @ts-ignore
+      new List('grid', {
+        valueNames: ['user', 'role'],
+      });
+    } catch(ex) { }
   }
 );

@@ -24,8 +24,11 @@ chrome.runtime.sendMessage(
 
     document.getElementById('results').innerHTML = rows;
 
-    new List('grid', {
-      valueNames: ['name', 'value'],
-    });
+    try {
+      // @ts-ignore
+      new List('grid', {
+        valueNames: ['name', 'value'],
+      });
+    } catch (ex) {}
   }
 );
