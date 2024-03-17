@@ -4,6 +4,26 @@ window.addEventListener('DOMContentLoaded', function () {
   const extensionVersion = chrome.runtime.getManifest().version;
   document.getElementById('version').innerHTML = `v${extensionVersion}`;
 
+  let drawerButton = document.querySelector(".mdl-layout__drawer-button") as HTMLElement;
+  if (drawerButton) {
+    drawerButton.title = "Admin Area";
+
+    let drawerButtonIcon = drawerButton.querySelector("i") as HTMLElement;
+    drawerButtonIcon?.setAttribute("aria-hidden", true);
+  }
+
+  let optionButtons = document.querySelectorAll(".mdl-button");
+  if (optionButtons.length > 0) {
+    for(let i = 0; i < optionButtons.length; i++) {
+      let oButton = optionButtons[i] as HTMLButtonElement;
+      let tooltip = oButton?.parentElement?.querySelector(".mdl-tooltip");
+      if (tooltip && oButton.id?.length > 0) {
+        tooltip.id = oButton.id + "-tooltip";
+        oButton?.setAttribute("aria-describedby", tooltip.id);
+      }
+    }
+  }
+
   const bodyText = encodeURIComponent(`
     Browser Version: ${navigator}
     Extension Version: ${extensionVersion}
