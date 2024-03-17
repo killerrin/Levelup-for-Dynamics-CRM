@@ -157,3 +157,16 @@ export interface ImpersonationStorage {
   userName: string;
   userFullName: string;
 }
+
+export type ModifyRequestRuleType = "Regex"|"Absolute";
+
+export interface WebResourcesRequestStorage {
+  folders: {
+    folder: string,
+    rules: {
+      enabled: boolean,
+      ruleType: ModifyRequestRuleType,
+      rule: chrome.declarativeNetRequest.Rule
+    }[]
+  }[]
+}

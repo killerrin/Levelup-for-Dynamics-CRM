@@ -91,6 +91,7 @@
                 <a href="#fixed-tab-2" class="mdl-layout__tab">Navigation</a>
                 <a href="#fixed-tab-3" class="mdl-layout__tab">View</a>
                 <a href="#fixed-tab-4" class="mdl-layout__tab">Impersonate</a>
+                <a href="#fixed-tab-5" class="mdl-layout__tab">Web Resources</a>
             </div>
         </header>
         <div class="mdl-layout__drawer">
@@ -505,6 +506,107 @@
                             <datalist id="userList">
                             </datalist>
                         </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="fixed-tab-5">
+                <div class="page-content">
+                    <div class="mdl-grid" id="webresources-tab">
+
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <details class="mdl-cell mdl-cell--12-col" open>
+                                <summary style="font-size: x-large;">
+                                    <strong>Modify Redirect Request</strong>
+                                </summary>
+                                <div class="mdl-cell mdl-cell--12-col">
+                                    <div class="mdl-cell mdl-cell--6-col">
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--6-col">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 6em;">
+                                            <input class="mdl-textfield__input" id="redirect-rule-id-input" name="redirect-rule-id-input" style="width: 100%;" value="#" readonly></input>
+                                            <label id="redirect-rule-id-label" class="mdl-textfield__label" for="redirect-rule-id-input">ID</label>
+                                        </div>
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <select id="redirect-rule-type-input" name="redirect-rule-type-input" class="mdl-textfield__input">
+                                                <option>Absolute</option>
+                                                <option selected>Regex</option>
+                                            </select>
+                                            <label id="redirect-rule-type-label" class="mdl-textfield__label" for="redirect-rule-type-input">Redirect Type</label>
+                                        </div>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--6-col">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%;">
+                                            <input class="mdl-textfield__input" id="redirect-request-folder-input" name="redirect-request-folder-input" list="requestfolderList" style="width: 100%;"></input>
+                                            <label id="redirect-request-folder-label" class="mdl-textfield__label" for="redirect-request-folder-input">Folder</label>
+                                            <datalist id="requestfolderList">
+                                            </datalist>
+                                        </div>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--6-col">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%;">
+                                            <input class="mdl-textfield__input" id="redirect-request-url-input" name="redirect-request-url-input" style="width: 100%;"></input>
+                                            <label id="redirect-request-url-label" class="mdl-textfield__label" for="redirect-request-url-input">Request URL</label>
+                                        </div>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--6-col">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%;">
+                                            <input class="mdl-textfield__input" id="redirect-to-url-input" name="redirect-to-url-input" style="width: 100%;"></input>
+                                            <label id="redirect-to-url-label" class="mdl-textfield__label" for="redirect-to-url-input">Redirect URL</label>
+                                        </div>
+                                    </div>
+        
+                                    <div class="mdl-cell mdl-cell--2-col">
+                                        <button id="addModifyWebRule" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" >
+                                            <i class="material-icons" aria-hidden="true">add</i>
+                                            <span>Update Rules</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </details>
+                            <hr/>
+                            <h3>Current Rules</h3>
+                            <details class="mdl-cell mdl-cell--12-col" open>
+                                <summary><strong>Folder 1</strong></summary>
+                                <div class="mdl-cell mdl-cell--12-col">
+                                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th class="mdl-data-table__cell--non-numeric">Enabled</th>
+                                                <th class="mdl-data-table__cell--non-numeric">Type</th>
+                                                <th class="mdl-data-table__cell--non-numeric">Request</th>
+                                                <th class="mdl-data-table__cell--non-numeric">Redirect</th>
+                                                <th class="mdl-data-table__cell--non-numeric">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td tabindex="0">#1</td>
+                                                <td class="mdl-data-table__cell--non-numeric">
+                                                    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+                                                        <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
+                                                        <span class="mdl-switch__label"></span>
+                                                    </label>
+                                                </td>
+                                                <td tabindex="0" class="mdl-data-table__cell--non-numeric">Regex</td>
+                                                <td tabindex="0" class="mdl-data-table__cell--non-numeric">myenvironment.crm3.dynamics.com/WebResources/myresource.js</td>
+                                                <td tabindex="0" class="mdl-data-table__cell--non-numeric">localhost:5233/myresource.js</td>
+                                                <td class="mdl-data-table__cell--non-numeric">
+                                                    <button id="editWebRule" class="mdl-button mdl-js-button mdl-button--icon">
+                                                        <i class="material-icons" aria-hidden="true">edit</i>
+                                                        <span aria-label="Edit Rule"></span>
+                                                    </button>
+                                                    <button id="deleteWebRule" class="mdl-button mdl-js-button mdl-button--icon">
+                                                        <i class="material-icons" aria-hidden="true">delete</i>
+                                                        <span aria-label="Delete Rule"></span>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </details>
+                        </div> 
                     </div>
                 </div>
             </section>
